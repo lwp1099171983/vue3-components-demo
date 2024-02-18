@@ -2,8 +2,9 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    node: true,
   },
-  extends: "plugin:vue/vue3-essential",
+  extends: ["plugin:vue/vue3-essential"],
   overrides: [
     {
       env: {
@@ -20,7 +21,6 @@ module.exports = {
     parser: "@typescript-eslint/parser",
     sourceType: "module",
   },
-  plugins: ["@typescript-eslint", "vue"],
   rules: {
     semi: 2,
   },
