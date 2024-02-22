@@ -1,0 +1,137 @@
+/**
+ * VK按钮样式
+ */
+.vk-button {
+  --vk-button-font-weight: var(--vk-font-weight-primary); /* VK按钮字体加粗 */
+  --vk-button-border-color: var(--vk-border-color); /* VK按钮边框颜色 */
+  --vk-button-bg-color: var(--vk-fill-color-blank); /* VK按钮背景颜色 */
+  --vk-button-text-color: var(--vk-text-color-regular); /* VK按钮文字颜色 */
+  --vk-button-disabled-text-color: var(--vk-disabled-text-color); /* VK按钮禁用状态的文字颜色 */
+  --vk-button-disabled-bg-color: var(--vk-fill-color-blank); /* VK按钮禁用状态的背景颜色 */
+  --vk-button-disabled-border-color: var(--vk-border-color-light); /* VK按钮禁用状态的边框颜色 */
+  --vk-button-hover-text-color: var(--vk-color-primary); /* VK按钮鼠标悬停时的文字颜色 */
+  --vk-button-hover-bg-color: var(--vk-color-primary-light-9); /* VK按钮鼠标悬停时的背景颜色 */
+  --vk-button-hover-border-color: var(--vk-color-primary-light-7); /* VK按钮鼠标悬停时的边框颜色 */
+  --vk-button-active-text-color: var(--vk-button-hover-text-color); /* VK按钮激活状态的文字颜色 */
+  --vk-button-active-border-color: var(--vk-color-primary); /* VK按钮激活状态的边框颜色 */
+  --vk-button-active-bg-color: var(--vk-button-hover-bg-color); /* VK按钮激活状态的背景颜色 */
+  --vk-button-outline-color: var(--vk-color-primary-light-5); /* VK按钮轮廓颜色 */
+  --vk-button-active-color: var(--vk-text-color-primary); /* VK按钮激活状态的文字颜色 */
+}
+/* 按钮样式 */
+.vk-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  height: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--vk-button-text-color);
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: 0.1s;
+  font-weight: var(--vk-button-font-weight);
+  user-select: none; /* 禁止选中文本 */
+  vertical-align: middle;
+  -webkit-appearance: none; /* 去除按钮的默认外观 */
+  background-color: var(--vk-button-bg-color);
+  border: var(--vk-border);
+  border-color: var(--vk-button-border-color);
+  padding: 8px 15px;
+  font-size: var(--vk-font-size-base);
+  border-radius: var(--vk-border-radius-base);
+  /* 按钮之间的间距 */
+  & + & {
+    margin-left: 12px;
+  }
+  /* 鼠标悬停和聚焦时的样式 */
+  &:hover,
+  &:focus {
+    color: var(--vk-button-hover-text-color);
+    border-color: var(--vk-button-hover-border-color);
+    background-color: var(--vk-button-hover-bg-color);
+    outline: none; /* 去除按钮的轮廓 */
+  }
+  /* 按钮被点击时的样式 */
+  &:active {
+    color: var(--vk-button-active-text-color);
+    border-color: var(--vk-button-active-border-color);
+    background-color: var(--vk-button-active-bg-color);
+    outline: none; /* 去除按钮的轮廓 */
+  }
+  /* 纯色按钮样式 */
+  &.is-plain {
+    --vk-button-hover-text-color: var(--vk-color-primary);
+    --vk-button-hover-bg-color: var(--vk-fill-color-blank);
+    --vk-button-hover-border-color: var(--vk-color-primary);
+  }
+  /* 圆角按钮样式 */
+  &.is-round {
+    border-radius: var(--vk-border-radius-round);
+  }
+  /* 圆形按钮样式 */
+  &.is-circle {
+    border-radius: 50%;
+    padding: 8px;
+  }
+  /* 禁用按钮样式 */
+  &.is-disabled,
+  &.is-disabled:hover,
+  &.is-disabled:focus,
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus {
+    color: var(--vk-button-disabled-text-color);
+    cursor: not-allowed;
+    background-image: none;
+    background-color: var(--vk-button-disabled-bg-color);
+    border-color: var(--vk-button-disabled-border-color);
+  }
+  /* 图标和文本之间的间距 */
+  [class*='vk-icon'] + span {
+    margin-left: 6px;
+  }
+}
+
+@each $val in primary, success, warning, info, danger {
+  .vk-button--$(val) {
+    --vk-button-text-color: var(--vk-color-white);
+    --vk-button-bg-color: var(--vk-color-$(val));
+    --vk-button-border-color: var(--vk-color-$(val));
+    --vk-button-outline-color: var(--vk-color-$(val)-light-5);
+    --vk-button-active-color: var(--vk-color-$(val)-dark-2);
+    --vk-button-hover-text-color: var(--vk-color-white);
+    --vk-button-hover-bg-color: var(--vk-color-$(val)-light-3);
+    --vk-button-hover-border-color: var(--vk-color-$(val)-light-3);
+    --vk-button-active-bg-color: var(--vk-color-$(val)-dark-2);
+    --vk-button-active-border-color: var(--vk-color-$(val)-dark-2);
+    --vk-button-disabled-text-color: var(--vk-color-white);
+    --vk-button-disabled-bg-color: var(--vk-color-$(val)-light-5);
+    --vk-button-disabled-border-color: var(--vk-color-$(val)-light-5);
+  }
+  .vk-button--$(val).is-plain {
+    --vk-button-text-color: var(--vk-color-$(val));
+    --vk-button-bg-color: var(--vk-color-$(val)-light-9);
+    --vk-button-border-color: var(--vk-color-$(val)-light-5);
+    --vk-button-hover-text-color: var(--vk-color-white);
+    --vk-button-hover-bg-color: var(--vk-color-$(val));
+    --vk-button-hover-border-color: var(--vk-color-$(val));
+    --vk-button-active-text-color: var(--vk-color-white);
+  }
+}
+.vk-button--large {
+  --vk-button-size: 40px;
+  height: var(--vk-button-size);
+  padding: 12px 19px;
+  font-size: var(--vk-font-size-base);
+  border-radius: var(--vk-border-radius-base);
+}
+.vk-button--small {
+  --vk-button-size: 24px;
+  height: var(--vk-button-size);
+  padding: 5px 11px;
+  font-size: 12px;
+  border-radius: calc(var(--vk-border-radius-base) - 1px);
+}
