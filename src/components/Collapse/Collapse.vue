@@ -15,10 +15,13 @@ defineOptions({
 const props = defineProps<CollapseProps>()
 const emits = defineEmits<CollapseEmits>()
 const activeNames = ref<NameType[]>(props.modelValue)
-watch(() => props.modelValue, (newVal) => {
-  activeNames.value = newVal
-})
-if(props.accordion && activeNames.value.length > 1) {
+watch(
+  () => props.modelValue,
+  (newVal) => {
+    activeNames.value = newVal
+  }
+)
+if (props.accordion && activeNames.value.length > 1) {
   console.warn('accordion mode should only have one active item')
 }
 

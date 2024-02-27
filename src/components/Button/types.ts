@@ -1,4 +1,6 @@
-export type ButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info'
+import type { themeType } from '@/types/index'
+
+export type ButtonType = themeType
 export type ButtonSize = 'large' | 'small' | 'normal'
 export type NativeType = 'button' | 'submit' | 'reset'
 

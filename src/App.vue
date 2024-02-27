@@ -4,6 +4,7 @@ import Button from './components/Button/Button.vue'
 import type { ButtonInstance } from './components/Button/types'
 import Collapse from './components/Collapse/Collapse.vue'
 import Item from './components/Collapse/CollapseItem.vue'
+import Icon from './components/Icon/Icon.vue'
 
 const buttonRef = ref<ButtonInstance | null>(null)
 
@@ -16,7 +17,7 @@ onMounted(() => {
 
 <template>
   <div>
-    <font-awesome-icon icon="fa-solid fa-house" />
+    <Icon type="success" icon="fa-solid fa-house" spin />
     <Button ref="buttonRef">Test Button</Button>
     <Button plain>Plain Button</Button>
     <Button round>Round Button</Button>

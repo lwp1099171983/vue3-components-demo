@@ -9,7 +9,10 @@
       :id="`item-header-${name}`"
       @click="handleClick"
     >
-      <slot name="header">{{ title }}</slot>
+      <div>
+        <slot name="header">{{ title }}</slot>
+      </div>
+      <Icon class="header-angle" icon="fa-solid fa-chevron-right" />
     </div>
     <Transition name="slide" v-on="transitionEvents">
       <!-- 加一层vk-collapse-item__wrapper，是为了处理vk-collapse-item__content设置的padding-bottom: 25px，不包一层会出现卡顿（padding-bottom是没有动画效果的） -->
@@ -26,7 +29,7 @@
 import { inject, computed } from 'vue'
 import type { CollapseItemProps } from './types'
 import { collapseContextKey } from './types'
-
+import Icon from '../Icon/Icon.vue'
 defineOptions({
   name: 'VkCollapseItem'
 })
